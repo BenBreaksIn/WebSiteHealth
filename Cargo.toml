@@ -1,0 +1,29 @@
+[package]
+name = "websitehealth"
+version = "0.1.0"
+edition = "2024"
+description = "A small HTTP uptime monitor for the terminal and CI"
+repository = "https://github.com/BenBreaksIn/WebSiteHealth"
+license = "MIT"
+readme = "README.md"
+keywords = ["uptime", "monitoring", "http", "cli", "healthcheck"]
+categories = ["command-line-utilities", "network-programming"]
+# Distributed through GitHub Releases; not published to crates.io.
+publish = false
+
+[dependencies]
+chrono = { version = "0.4.45", default-features = false, features = ["now"] }
+clap = { version = "4.6", features = ["derive"] }
+dialoguer = { version = "0.12", default-features = false }
+reqwest = { version = "0.13.5", default-features = false, features = ["rustls", "http2"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tokio = { version = "1.53", features = ["fs", "io-util", "macros", "rt", "signal", "time"] }
+
+[target.'cfg(unix)'.dependencies]
+libc = "0.2"
+
+[dev-dependencies]
+rcgen = { version = "0.14.10", default-features = false, features = ["aws_lc_rs"] }
+tokio = { version = "1.53", features = ["io-util", "net", "process", "sync"] }
+tokio-rustls = "0.26"

@@ -1,0 +1,25 @@
+name: Bug report
+description: Report a reproducible problem with WebSiteHealth.
+title: "[Bug]: "
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Version and operating system
+      description: Run websitehealth --version and include your OS and architecture.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: Include the command and a synthetic URL or local fixture. Remove private URLs and secrets.
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Expected and actual behavior
+      description: Include relevant output with sensitive data removed.
+    validations:
+      required: true
